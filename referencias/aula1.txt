@@ -1,0 +1,39 @@
+https://blog.cleancoder.com/uncle-bob/2011/09/30/Screaming-Architecture.html
+
+https://www.amazon.com.br/Domain-Driven-Design-Eric-Evans/dp/8550800651
+https://www.amazon.com.br/Implementando-Domain-Driven-design-Vernon/dp/8576089521
+https://www.amazon.com.br/Domain-Driven-Design-Distilled-English-Vaughn-ebook/dp/B01JJSGE5S
+
+https://en.wikipedia.org/wiki/Conway%27s_law
+http://www.melconway.com/Home/Committees_Paper.html
+https://www.thoughtworks.com/pt/radar/techniques/inverse-conway-maneuver
+
+https://microservices.io/patterns/decomposition/decompose-by-business-capability.html
+https://microservices.io/patterns/decomposition/decompose-by-subdomain.html
+
+1980. Entity relationship approach to systems analysis and design. North-Holland. Peter Chen.
+Yourdon, Edward; Constantine, Larry L. (1979) [1975]. Structured Design: Fundamentals of a Discipline of Computer Program and Systems Design. Yourdon Press. ISBN 978-0-13-854471-3.
+
+http://www.codingthearchitecture.com/2015/03/08/package_by_component_and_architecturally_aligned_testing.html
+http://www.codingthearchitecture.com/2014/10/01/modularity_and_testability.html
+
+https://michaelfeathers.silvrback.com/microservices-until-macro-complexity
+
+https://www.amazon.com.br/Building-Microservices-Designing-Fine-Grained-Systems-ebook/dp/B00T3N7XB4
+https://www.amazon.com.br/Microservice-Patterns-examples-Chris-Richardson/dp/1617294543
+
+https://microservices.io/patterns/microservice-chassis.html
+https://12factor.net/pt_br/
+
+https://martinfowler.com/articles/microservice-trade-offs.html
+https://martinfowler.com/bliki/MicroservicePremium.html
+https://martinfowler.com/bliki/MicroservicePrerequisites.html
+
+https://martinfowler.com/bliki/MonolithFirst.html
+https://martinfowler.com/articles/dont-start-monolith.html
+
+https://martinfowler.com/bliki/StranglerFigApplication.html
+https://en.wikipedia.org/wiki/Strangler_fig#/media/File:Strangler_fig_inside.jpg
+
+Microservices com Spring Cloud: Para que servem?
+https://docs.google.com/document/d/19GYmQG1WpL54vmfCc2vkCjf96NPyRz_iIZwmC-wzfLU/edit#heading=h.ew12axj74egu
