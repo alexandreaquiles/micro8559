@@ -1,0 +1,12 @@
+https://martinfowler.com/bliki/StranglerFigApplication.html
+https://en.wikipedia.org/wiki/Strangler_fig#/media/File:Strangler_fig_inside.jpg
+
+https://microservices.io/patterns/data/aggregate.html
+
+https://microservices.io/patterns/data/shared-database.html
+
+https://microservices.io/patterns/data/database-per-service.html
+
+https://hub.docker.com/_/mysql
+
+
