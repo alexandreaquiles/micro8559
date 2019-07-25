@@ -22,6 +22,7 @@ class RestauranteController {
 
 	private RestauranteRepository restauranteRepo;
 	private CardapioRepository cardapioRepo;
+	private DistanciaRestClient distanciaRestClient;
 
 	@GetMapping("/restaurantes/{id}")
 	public RestauranteDto detalha(@PathVariable("id") Long id) {
@@ -55,6 +56,16 @@ class RestauranteController {
 		Restaurante doBD = restauranteRepo.getOne(restaurante.getId());
 		restaurante.setUser(doBD.getUser());
 		restaurante.setAprovado(doBD.getAprovado());
+		
+		if (
+			!doBD.getCep().equals(restaurante.getCep())
+				||
+			!doBD.getTipoDeCozinha().getId().equals(restaurante.getTipoDeCozinha().getId())	
+		) {
+			distanciaRestClient.restauranteAtualizado(restaurante);
+		}
+		
+		
 		return restauranteRepo.save(restaurante);
 	}
 
@@ -68,5 +79,25 @@ class RestauranteController {
 	@PatchMapping("/admin/restaurantes/{id}")
 	public void aprova(@PathVariable("id") Long id) {
 		restauranteRepo.aprovaPorId(id);
+		
+		Restaurante restaurante = restauranteRepo.getOne(id);
+		distanciaRestClient.novoRestauranteAprovado(restaurante);
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
