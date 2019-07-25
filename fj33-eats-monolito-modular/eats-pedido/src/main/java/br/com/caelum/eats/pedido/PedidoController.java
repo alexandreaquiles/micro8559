@@ -59,4 +59,24 @@ class PedidoController {
 				.map(pedido -> new PedidoDto(pedido)).collect(Collectors.toList());
 	}
 
+	@PutMapping("/pedidos/{id}/pago")
+	public void pago(@PathVariable Long id) {
+		Pedido pedido = repo.porIdComItens(id);
+		if (pedido == null) {
+			throw new ResourceNotFoundException();
+		}
+		pedido.setStatus(Pedido.Status.PAGO);
+		repo.atualizaStatus(Pedido.Status.PAGO, pedido);
+	}
+
 }
+
+
+
+
+
+
+
+
+
+
