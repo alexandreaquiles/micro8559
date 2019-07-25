@@ -14,9 +14,11 @@ import org.springframework.web.util.UriComponentsBuilder;
 import br.com.caelum.eats.distancia.mongo.RestauranteMongo;
 import br.com.caelum.eats.distancia.mongo.RestauranteMongoRepository;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @AllArgsConstructor
+@Slf4j
 public class RestaurantesController {
 	
 	private RestauranteMongoRepository repo;
@@ -24,6 +26,7 @@ public class RestaurantesController {
 	@PostMapping("/restaurantes")
 	public ResponseEntity<RestauranteMongo> adiciona(@RequestBody RestauranteMongo restaurante, 
 				UriComponentsBuilder uriBuilder) {
+		log.info("Inserindo restaurante: " + restaurante);
 		RestauranteMongo salvo = repo.insert(restaurante);
 		URI location = uriBuilder.path("/restaurantes/{id}").buildAndExpand(salvo.getId()).toUri();
 		return ResponseEntity.created(location).contentType(MediaType.APPLICATION_JSON).body(salvo);
@@ -34,6 +37,7 @@ public class RestaurantesController {
 		if (!repo.existsById(id)) {
 			throw new ResourceNotFoundException();
 		}
+		log.info("Atualizando restaurante: " + restaurante);
 		return repo.save(restaurante);
 	}
 	
