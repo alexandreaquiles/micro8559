@@ -58,4 +58,8 @@ export class RestauranteService {
     return this.http.patch(`${this.API}/admin/restaurantes/${restaurante.id}`, restaurante);
   }
 
+  porCepEIdComDistancia(cep: string, restauranteId: string): Observable<any> {
+    return this.http.get(`${this.API}/restaurante-com-distancia/${cep}/restaurante/${restauranteId}`);
+  }
+
 }
