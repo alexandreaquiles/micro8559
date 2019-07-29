@@ -16,3 +16,11 @@ services:
     restart: on-failure
     ports:
       - "27018:27017"
+  consul:
+    image: consul:1.5
+    restart: on-failure
+    ports:
+      - "8600:8600"
+      - "8500:8500"
+    environment:
+      CONSUL_BIND_INTERFACE: eth0
