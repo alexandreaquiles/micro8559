@@ -13,7 +13,7 @@ public class DistanciaRestClient {
 	
 	
 	public DistanciaRestClient(RestTemplate restTemplate, 
-		@Value("${zuul.routes.distancia.url}")	String distanciaServiceUrl) {
+		@Value("${configuracao.distancia.service.url}")	String distanciaServiceUrl) {
 		this.restTemplate = restTemplate;
 		this.distanciaServiceUrl = distanciaServiceUrl;
 	}
