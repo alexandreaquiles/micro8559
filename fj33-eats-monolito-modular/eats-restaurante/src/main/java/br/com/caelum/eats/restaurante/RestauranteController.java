@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.ReflectionUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,6 +27,13 @@ class RestauranteController {
 
 	@GetMapping("/restaurantes/{id}")
 	public RestauranteDto detalha(@PathVariable("id") Long id) {
+		
+		try {
+			Thread.sleep(20000);
+		} catch (InterruptedException e) {
+			ReflectionUtils.rethrowRuntimeException(e);
+		}
+		
 		Restaurante restaurante = restauranteRepo.findById(id).orElseThrow(() -> new ResourceNotFoundException());
 		return new RestauranteDto(restaurante);
 	}
