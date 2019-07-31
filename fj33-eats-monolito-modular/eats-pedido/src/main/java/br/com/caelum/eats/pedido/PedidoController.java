@@ -5,7 +5,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.springframework.messaging.simp.SimpMessagingTemplate;
+import org.springframework.messaging.Message;
+import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.caelum.eats.exception.ResourceNotFoundException;
+import br.com.caelum.eats.pedido.AmqpPedidoConfig.AtualizacaoPedidoSource;
 import lombok.AllArgsConstructor;
 
 @RestController
@@ -21,7 +23,7 @@ import lombok.AllArgsConstructor;
 class PedidoController {
 
 	private PedidoRepository repo;
-	private SimpMessagingTemplate websocket;
+	private AtualizacaoPedidoSource atualizacaoPedidoSource;
 
 	@GetMapping("/pedidos")
 	public List<PedidoDto> lista() {
@@ -49,8 +51,13 @@ class PedidoController {
 	@PutMapping("/pedidos/{id}/status")
 	public PedidoDto atualizaStatus(@RequestBody Pedido pedido) {
 		repo.atualizaStatus(pedido.getStatus(), pedido);
-		websocket.convertAndSend("/pedidos/"+pedido.getId()+"/status", pedido);
-		return new PedidoDto(pedido);
+
+		PedidoDto pedidoDto = new PedidoDto(pedido);
+		
+		Message<?> message = MessageBuilder.withPayload(pedidoDto).build();
+		atualizacaoPedidoSource.pedidoComStatusAtualizado().send(message);
+
+		return pedidoDto;
 	}
 
 	@GetMapping("/parceiros/restaurantes/{restauranteId}/pedidos/pendentes")
@@ -67,6 +74,12 @@ class PedidoController {
 		}
 		pedido.setStatus(Pedido.Status.PAGO);
 		repo.atualizaStatus(Pedido.Status.PAGO, pedido);
+		
+		PedidoDto pedidoDto = new PedidoDto(pedido);
+
+		Message<?> message = MessageBuilder.withPayload(pedidoDto).build();
+		atualizacaoPedidoSource.pedidoComStatusAtualizado().send(message);
+
 	}
 
 }
