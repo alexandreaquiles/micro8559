@@ -17,5 +17,6 @@ public class RestauranteMongo {
 	private Long id;
 	private String cep;
 	private Long tipoDeCozinhaId;
+	
 
 }

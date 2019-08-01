@@ -2,9 +2,11 @@ package br.com.caelum.eats.restaurante;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class RestauranteParaServicoDeDistancia {
 
 	private Long id;
