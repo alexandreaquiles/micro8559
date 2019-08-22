@@ -1,4 +1,7 @@
-package br.com.caelum.eats.seguranca;
+package br.com.caelum.apigateway;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 import org.springframework.security.core.GrantedAuthority;
 
@@ -6,6 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
@@ -20,6 +24,7 @@ public class Role implements GrantedAuthority {
 		}
 	}
 
+	@Id
 	private String authority;
 
 	public String getRole() {

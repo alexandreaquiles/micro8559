@@ -1,11 +1,11 @@
-package br.com.caelum.eats.seguranca;
+package br.com.caelum.eats.admin;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import br.com.caelum.eats.seguranca.Role.ROLES;
+import br.com.caelum.eats.admin.Role.ROLES;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;

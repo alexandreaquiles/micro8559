@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class FormaDePagamentoService {
 
-  private API = environment.baseUrl;
+  private API = environment.baseUrl + '/admin';
 
   constructor(private http: HttpClient) {
   }

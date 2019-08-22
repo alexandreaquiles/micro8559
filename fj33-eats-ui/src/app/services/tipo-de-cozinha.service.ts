@@ -9,7 +9,7 @@ import { environment } from 'src/environments/environment';
 })
 export class TipoDeCozinhaService {
 
-  private API = environment.baseUrl;
+  private API = environment.baseUrl + '/admin';
 
   constructor(private http: HttpClient) {
   }

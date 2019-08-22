@@ -1,4 +1,4 @@
-package br.com.caelum.eats.seguranca;
+package br.com.caelum.eats.admin;
 
 import org.springframework.security.core.GrantedAuthority;
 

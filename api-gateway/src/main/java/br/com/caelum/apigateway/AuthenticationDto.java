@@ -1,4 +1,4 @@
-package br.com.caelum.eats.seguranca;
+package br.com.caelum.apigateway;
 
 import java.util.List;
 
@@ -12,10 +12,9 @@ class AuthenticationDto {
 	private String username;
 	private List<String> roles;
 	private String token;
-	private Long targetId;
 
-	public AuthenticationDto(User user, String jwtToken, Long targetId) {
-		this(user.getName(), user.getRoles(), jwtToken, targetId);
+	public AuthenticationDto(User user, String jwtToken) {
+		this(user.getName(), user.getRoles(), jwtToken);
 	}
 
 }

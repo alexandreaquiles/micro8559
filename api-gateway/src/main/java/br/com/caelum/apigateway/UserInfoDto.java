@@ -1,4 +1,4 @@
-package br.com.caelum.eats.seguranca;
+package br.com.caelum.apigateway;
 
 import lombok.Data;
 
