@@ -5,7 +5,6 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +21,6 @@ class AuthenticationController {
 	private JwtTokenManager jwtTokenManager;
 	private UserService userService;
 
-	@CrossOrigin
 	@PostMapping 
 	public ResponseEntity<AuthenticationDto> authenticate(@RequestBody UserInfoDto login) {
 		UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(
@@ -40,7 +38,6 @@ class AuthenticationController {
 
 	}
 	
-	@CrossOrigin
 	@PostMapping("/parceiro")
 	public Long register(@RequestBody UserInfoDto userInfo) {
 		User user = userInfo.toUser();

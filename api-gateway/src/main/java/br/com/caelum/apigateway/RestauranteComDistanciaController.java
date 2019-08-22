@@ -1,6 +1,5 @@
 package br.com.caelum.apigateway;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,8 +13,6 @@ public class RestauranteComDistanciaController {
 	private RestauranteRestClient restauranteRestClient;
 	private DistanciaRestClient distanciaRestClient;
 
-
-	@CrossOrigin
 	@GetMapping("/restaurante-com-distancia/{cep}/restaurante/{restauranteId}")
 	public RestauranteComDistanciaDto porCepEIdComDistancia(@PathVariable("cep") String cep, 
 				@PathVariable("restauranteId") Long restauranteId) {
